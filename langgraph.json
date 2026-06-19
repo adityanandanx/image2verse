@@ -1,0 +1,7 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "agent": "./prod_rag/agents/default.py:default_agent"
+  },
+  "env": ".env"
+}
