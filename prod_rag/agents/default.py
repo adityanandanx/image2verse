@@ -2,7 +2,7 @@ from langchain_groq import ChatGroq
 from langchain.agents import create_agent
 from prod_rag.config import settings
 from langgraph.checkpoint.memory import InMemorySaver
-from prod_rag.agents.tools import query_lyrics
+from prod_rag.tools import query_lyrics
 
 checkpointer = InMemorySaver()
 
