@@ -30,3 +30,9 @@ def get_vector_store(collection_name: str):
 def get_retriever(collection_name: str):
     vs = get_vector_store(collection_name)
     return vs.as_retriever()
+
+
+if __name__ == "__main__":
+    vs = get_vector_store("genius-lyrics-the-strokes")
+    results = vs.similarity_search("At the door")
+    print(results)

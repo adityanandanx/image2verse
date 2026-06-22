@@ -15,7 +15,6 @@ from langchain_core.messages import (
 )
 from langchain_core.runnables import RunnableConfig
 
-# 1. Type-hint your config using the strict LangChain class
 config: RunnableConfig = {"configurable": {"thread_id": str(uuid.uuid4())}}
 
 
