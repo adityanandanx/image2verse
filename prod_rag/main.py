@@ -1,5 +1,5 @@
 # from langchain.agents import AgentExecutor
-from prod_rag.agents.default import default_agent
+from prod_rag.agents.local_gemma4 import local_agent
 import uuid
 from langchain_core.messages import HumanMessage
 from langchain_core.runnables import RunnableConfig
@@ -46,7 +46,7 @@ def run_cli():
             inputs: Any = {"messages": [HumanMessage(content=user_input)]}
 
             # 3. Consume the message streams dynamically
-            for chunk in default_agent.stream(
+            for chunk in local_agent.stream(
                 inputs, config=config, stream_mode=["messages", "updates"], version="v2"
             ):
 
