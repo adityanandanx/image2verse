@@ -10,7 +10,7 @@ class Settings(BaseSettings):
         Path(__file__).resolve().parents[1]
         / "db"
         / "chroma"
-        / "genius-lyrics-the-strokes2"
+        / "genius-lyrics-the-strokes"
     )
     langsmith_api_key: SecretStr | None = None
 

@@ -11,5 +11,4 @@ wheels/
 
 .env
 
-db/chroma
 data/lyrics/song_lyrics.csv
