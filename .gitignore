@@ -11,4 +11,6 @@ wheels/
 
 .env
 
-data/lyrics/song_lyrics.csv
+data/lyrics/song_lyrics.csv.langgraph_api/
+db/chroma/chroma.sqlite3
+*.pckl
