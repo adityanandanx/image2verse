@@ -13,5 +13,5 @@ wheels/
 
 data/lyrics/song_lyrics.csv
 .langgraph_api/
-db/chroma/chroma.sqlite3
+db/chroma
 *.pckl

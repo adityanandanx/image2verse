@@ -4,6 +4,33 @@ from uuid import uuid4
 import base64
 from langgraph.checkpoint.memory import InMemorySaver
 from prod_rag.agents.default import default_agent
+from prod_rag.config import settings
+from pathlib import Path
+from huggingface_hub import snapshot_download
+import os
+
+
+# Initialize Chroma DB on app startup (runs once per container)
+def init_chroma_db():
+    db_path = Path(settings.chroma_db_path)
+    if not db_path.exists() and os.environ.get("SPACE_ID"):
+        # if not db_path.exists():
+        print("Downloading Chroma database...")
+        try:
+            snapshot_download(
+                repo_id="adityanandan/lyrics-embeddings-chromadb",
+                repo_type="dataset",
+                local_dir=str(db_path),
+            )
+            print("Chroma database downloaded")
+        except Exception as e:
+            print(f"Failed to download Chroma DB: {e}")
+
+    db_path.mkdir(parents=True, exist_ok=True)
+
+
+# Run once on app startup
+init_chroma_db()
 
 checkpointer = InMemorySaver()
 agent = default_agent
